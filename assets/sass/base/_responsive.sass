@@ -1,0 +1,35 @@
+@use '../base/mixins' as m
+
++m.lg
+    :root
+        /* Typography */
+        --fs-h-one: 40px
+        --fs-h-two: 32px
+        --fs-h-three: 24px
+        --fs-h-four: 18px
+
+        /* Layout */
+        --section-padding: 64px
+
+    .grid--4,
+    .grid--3
+        grid-template-columns: repeat(2, 1fr)
+
++m.md
+    :root
+        /* Typography */
+        --fs-h-one: 32px
+        --fs-h-two: 28px
+        --fs-h-three: 22px
+        --fs-h-four: 20px
+        --fs-text-lg: 16px
+        --fs-text: 14px
+        --fs-text-sm: 12px
+
+        /* Layout */
+        --section-padding: 48px
+
+    .grid--4,
+    .grid--3,
+    .grid--2
+        grid-template-columns: 1fr

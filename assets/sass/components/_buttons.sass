@@ -1,0 +1,93 @@
+@use '../base/mixins' as m
+
+.btn
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    min-height: 48px
+    min-width: 120px
+    padding: 0 24px
+    border: 1px solid transparent
+    border-radius: var(--radius-road)
+    background-color: var(--color-accent)
+    color: var(--color-white)
+    font-size: var(--fs-text)
+    font-weight: 600
+    cursor: pointer
+    transition: var(--transition)
+
+    &:hover
+        opacity: 0.9
+
+    &--outline
+        background: transparent
+        border-color: var(--color-accent)
+        color: var(--color-accent)
+
+.effect-scroll
+    transform: translateX(-50%)
+    width: 28px
+    height: 48px
+    border: 1px solid #EDF0F0
+    border-radius: var(--radius-road)
+    display: flex
+    align-items: flex-start
+    justify-content: center
+    padding-top: 6px
+    text-decoration: none
+    transition: transform .3s ease, border-color .3s ease, opacity .3s ease
+    z-index: 5
+    position: absolute
+    left: 50%
+    bottom: 32px
+    +m.lg
+        left: calc( 100% - 28px )
+        bottom: 15px
+
+    &:hover
+        transform: translateX(-50%) scale(1.06)
+        border-color: #fff
+
+    &__dot
+        width: 6px
+        height: 6px
+        border-radius: 50%
+        background: #fff
+        animation: scroll-dot 1s ease-in-out infinite
+
+@keyframes scroll-dot
+    0%
+        transform: translateY(0)
+        opacity: 0
+
+    20%
+        opacity: 1
+
+    50%
+        opacity: 0.8
+
+    80%
+        opacity: 0.4
+
+    100%
+        transform: translateY(26px)
+        opacity: 0
+
++m.lg
+    @keyframes scroll-dot
+        0%
+            transform: translateY(26px)
+            opacity: 0
+
+        20%
+            opacity: 1
+
+        50%
+            opacity: 0.8
+
+        80%
+            opacity: 0.4
+
+        100%
+            transform: translateY(0)
+            opacity: 0

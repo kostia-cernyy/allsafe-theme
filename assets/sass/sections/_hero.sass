@@ -1,0 +1,52 @@
+@use '../base/mixins' as m
+
+.hero
+    position: relative
+    height: 100vh
+    height: 100dvh
+    max-height: 850px
+    background-size: cover
+    background-position: center
+    display: flex
+    align-items: center
+
+    &__title
+        position: relative
+        color: var(--color-white)
+
+    &__text
+        position: relative
+        color: var(--color-white)
+        font-size: var(--fs-text-lg)
+        margin-top: 20px
+
+    &__visual
+        position: absolute
+        overflow: hidden
+        height: 100%
+        width: 100%
+        top: 0
+        right: 0
+
+    &__item
+        position: absolute
+        right: 0
+        bottom: 0
+        height: 100%
+        display: block
+        opacity: 0
+        transform: translateX(120px)
+        transition: transform 0.8s ease, opacity 0.8s ease
+        pointer-events: none
+        +m.lg
+            height: auto
+            right: -18%
+        &.is-active
+            opacity: 1
+            transform: translateX(0)
+            z-index: 2
+
+        &.is-exit
+            opacity: 0
+            transform: translateX(140px)
+            z-index: 1
